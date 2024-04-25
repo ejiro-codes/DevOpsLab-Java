@@ -22,14 +22,22 @@ public class NameChecker {
         Matcher m = p.matcher(input);
 
         if (m.find()) {
-            if (pattern.charAt(0) == '-' || pattern.charAt(0) == '\'' || pattern.contains("--")) {
-                return false;
-            } else {
-                String k = pattern.replaceAll("'", "");
-                if (Math.abs(k.length() - pattern.length()) < 2) {
-                    return true;
+            int hiphen = 0;
+            int single = 0;
+            for (int i = 0; i < pattern.length(); i++) {
+                if (pattern.charAt(i) == '-')
+                    hiphen++;
+                if (pattern.charAt(i) == '\'')
+                    single++;
+                if (single == 2) {
+                    return false;
                 }
+                if (hiphen >= 2 && pattern.charAt(i - 1) == '-') {
+                    return false;
+                }
+
             }
+            return true;
 
         }
         return false;

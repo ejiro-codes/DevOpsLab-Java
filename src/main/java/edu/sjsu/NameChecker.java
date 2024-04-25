@@ -21,7 +21,9 @@ public class NameChecker {
         Matcher m = p.matcher(input);
 
         if (m.find()) {
-            if (pattern.charAt(0) == '-' || pattern.contains("--")) {
+            if (pattern.charAt(0) == '-' || pattern.charAt(0) == '\'' || pattern.contains("--")) {
+                return false;
+            } else {
                 String k = pattern.replaceAll("'", "");
                 if (Math.abs(k.length() - pattern.length()) < 2) {
                     return true;

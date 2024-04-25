@@ -2,6 +2,7 @@ package edu.sjsu;
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.lang.Math;
 
 public class NameChecker {
     /**

@@ -24,15 +24,15 @@ public class NameChecker {
         if (m.find()) {
             int hiphen = 0;
             int single = 0;
-            for (int i = 0; i < pattern.length(); i++) {
-                if (pattern.charAt(i) == '-')
+            for (int i = 0; i < input.length(); i++) {
+                if (input.charAt(i) == '-')
                     hiphen++;
-                if (pattern.charAt(i) == '\'')
+                if (input.charAt(i) == '\'')
                     single++;
                 if (single == 2) {
                     return false;
                 }
-                if (hiphen >= 2 && pattern.charAt(i - 1) == '-') {
+                if (hiphen >= 2 && input.charAt(i - 1) == '-') {
                     return false;
                 }
 
